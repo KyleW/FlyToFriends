@@ -12,7 +12,7 @@ window.fbAsyncInit = function() {
   // will be handled. 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     // Here we specify what we do with the response anytime this event occurs. 
-    if (response.status === 'connected') {
+     if (response.status === 'connected') {
       console.log(response);
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 

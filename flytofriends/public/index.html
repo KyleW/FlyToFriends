@@ -1,12 +1,32 @@
 <!doctype html>
-<!-- <html ng-app="myApp"> -->
 <html>
 <head>
+  <script src="fb.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+
+
+</head>
+<body>
+<div id="fb-root"></div>
+
+<!--
+  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+  present a graphical Login button that triggers the FB.login() function when clicked. -->
+
+<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+</body>
+</html>
+
+
+
+
+<!-- <html ng-app="myApp"> 
+<html>
+<head>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.js"></script>
-  <script src="app.js"></script> 
-  <script src="controllers.js"></script> 
-  <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
@@ -21,14 +41,6 @@
       <li><a href="#/flights">View Flights</a></li>
     </ul>
   </div>
-
-<!--   <div class="container" ng-view></div  -->
-<div id="fb-root"></div>
-
-<!--
-  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
-  present a graphical Login button that triggers the FB.login() function when clicked. -->
-
-<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 </body>
 </html>
+-->
