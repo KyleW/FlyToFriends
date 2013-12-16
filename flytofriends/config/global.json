@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Fly to Friends": {
+            "applicationId": "USQzE5d3LCht6kABJ8KsfpcvxOe1LI7KoQZcQkqC", 
+            "masterKey": "PkxHIeoAKb5ma3hDTW11aPkI5Tizvuurk2GcOJtv"
+        }, 
+        "_default": {
+            "link": "Fly to Friends"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.13"
+    }
+}
