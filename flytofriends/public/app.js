@@ -2,7 +2,7 @@ angular.module('myApp', ['ngRoute','myControllers'])
   .config(['$routeProvider',
     function($routeProvider) {
       $routeProvider.
-        when('/', {
+        when('/flights', {
           templateUrl: 'templates/showFlights.html',
           controller: 'showFlights'
         // }).

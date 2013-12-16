@@ -1,12 +1,21 @@
 angular.module('myControllers',[])
   .controller('showFlights', function($scope, $http) {
-    // $http({
-    //   method: "GET",
-    //   url: "http://localhost:4567/links"
-    // }).success(function(data){
-    //   console.log(data);
-    //   $scope.links = data;
-    // });
+    var fbBase = 'https://graph.facebook.com/fql?q=';
+    var query ="SELECT+current_location+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me())";
+    query="SELECT+uid2+FROM+friend+WHERE+uid1+=+me()";
+    var access_token = FB.getAuthResponse().accessToken;
+    var fburl = fbBase+JSON.stringify(query)+"&access_token="+access_token;
+    console.log(fburl);
+
+    $http({
+      method: "GET",
+      url: fburl,
+    }).success(function(data){
+      console.log(data);
+      // $scope.links = data;
+    }).error(function(){
+      consol.log("there was an error in your FQL request");
+    });
   // })
   // .controller('createLinks', function($scope, $http) {
   //   $scope.submit = function() {
