@@ -1,9 +1,34 @@
-
+<!doctype html>
+<!-- <html ng-app="myApp"> -->
 <html>
-  <head>
-    <title>My ParseApp site</title>
-  </head>
-  <body>
-    Hello World!
-  </body>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.js"></script>
+  <script src="app.js"></script> 
+  <script src="controllers.js"></script> 
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+  <div id = "header">
+    <h1>Fly To Friends</h1>
+  </div>
+
+  <div class="navigation left">
+    <ul>
+      <li><a href="#">Login</a></li>
+      <li><a href="#/flights">View Flights</a></li>
+    </ul>
+  </div>
+
+<!--   <div class="container" ng-view></div  -->
+<div id="fb-root"></div>
+
+<!--
+  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+  present a graphical Login button that triggers the FB.login() function when clicked. -->
+
+<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+</body>
 </html>
