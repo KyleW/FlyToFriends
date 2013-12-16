@@ -14,9 +14,8 @@ window.fbAsyncInit = function() {
     // Here we specify what we do with the response anytime this event occurs. 
      if (response.status === 'connected') {
       console.log(response);
-      
       FB.api('/me', function(response) {
-       alert(response.name);
+       console.log(response.location.name);
       });
 
       // The response object is returned with a status field that lets the app know the current
