@@ -7,8 +7,8 @@ angular.module('myApp', ['ngRoute','myControllers'])
       controller: 'start'
     }).
     when('/cityList', {
-      templateUrl: 'templates/showFlights.html',
-      controller: 'showFlights'
+      templateUrl: 'templates/listCities.html',
+      controller: 'listCities'
     }).
     when('/cityDetails', {
       templateUrl: 'templates/showCity.html',
@@ -35,6 +35,3 @@ angular.module('myApp', ['ngRoute','myControllers'])
       }
     };
   });
-
-
-  // ng-click="$location.path('/cityList')"

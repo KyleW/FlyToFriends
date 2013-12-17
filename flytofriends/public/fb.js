@@ -1,4 +1,5 @@
 var friendLoc = {};
+var locData = [];
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -67,29 +68,11 @@ window.fbAsyncInit = function() {
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    
 
-    FB.api(
-    {
-      method: 'fql.query',
-      query: 'SELECT current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
-    },
-    function(data) {
-      console.log(data);
-      for (var key in data){
-        if (data[key].current_location){
-          var cur = data[key].current_location.city;
-          if (cur in friendLoc){
-            friendLoc[cur]++;
-          } else {
-            friendLoc[cur] = 1;
-          }
-        }
-      }
-  });
+    console.log('Welcome!  Fetching your information.... ');
 
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
+
   }

@@ -7,9 +7,10 @@
       <th class="cityHeader">Places to Go</th>
       <th class="friendHeader">People to See</th>
     </tr>
-    <!-- <tr ng-repeat="(key, value) in friendLoc | orderBy: sortBy:true"> -->
-    <tr ng-repeat="(key, value) in friendLoc">
-      <td class="city" ><a ng-click="setDest(key)">{{key}}</a></td> <td class="friendNumber"> {{ value }} </td>
+    <tr ng-repeat="city in locData">
+    <!-- <tr ng-repeat="(key, value) in friendLoc"> -->
+      <td class="city" ><a ng-click="setDest(city.city)">{{city.name}}</a></td>
+      <!-- <td class="friendNumber"> {{ value }} </td> -->
     </tr>
   </table>
 </div>
