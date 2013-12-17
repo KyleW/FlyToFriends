@@ -9,46 +9,14 @@ angular.module('myControllers',[])
 .controller('start', function($scope, $http, $location, sharedProperties) {
   $scope.checkLogin = function(){
     FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        FB.api(
-        {
-          method: 'fql.query',
-          query: 'SELECT current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
-        }, function(data) {
-          console.log(data);
-          for (var key in data){
-            if (data[key].current_location){
-              var cur = data[key].current_location.city;
-              if (cur in friendLoc){
-                friendLoc[cur]++;
-              } else {
-                friendLoc[cur] = 1;
-              }
-            }
-          }
-        });
-
-      } else {
+      if (response.status !== 'connected') {
         FB.login(function(response) {}, {scope:'friends_location'});
-
-        FB.api(
-        {
-          method: 'fql.query',
-          query: 'SELECT current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
-        }, function(data) {
-          console.log(data);
-          for (var key in data){
-            if (data[key].current_location){
-              var cur = data[key].current_location.city;
-              if (cur in friendLoc){
-                friendLoc[cur]++;
-              } else {
-                friendLoc[cur] = 1;
-              }
-            }
-          }
-        });
       }
+
+      FB.api( {
+        method: 'fql.query',
+        query: 'SELECT current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
+      }, function(data) {processData(data);});
 
       $location.path("/cityList");
 
@@ -73,16 +41,12 @@ angular.module('myControllers',[])
 });
 
 
-
-//   $scope.submit = function() {
-//     var temp ={url: $scope.newURL};
-//       $http({
-//         method: "POST",
-//         url: "http://localhost:4567/links",
-//         headers: {'Content-Type': 'application/json'},
-//         data: JSON.stringify(temp)
-//       }).then(function(){
-//         console.log("sent in a new link.");
-//         $scope.newURL="";
-//       });
-//   };    
+var processData = function(data){
+  for (var key in data){
+    if (data[key].current_location){
+      var cur = data[key].current_location.city;
+      if (cur in friendLoc){ friendLoc[cur]++;}
+      else { friendLoc[cur] = 1;}
+    }
+  }
+};

@@ -74,6 +74,10 @@ th {
   border-bottom: 4px solid white;
 }
 
+.cityDetails {
+  padding:30px 100px;
+}
+
 .cityHeader {
   text-align: left;
   width: 500px;
