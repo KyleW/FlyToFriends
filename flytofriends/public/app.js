@@ -5,11 +5,11 @@ angular.module('myApp', ['ngRoute','myControllers'])
         when('/flights', {
           templateUrl: 'templates/showFlights.html',
           controller: 'showFlights'
-        // }).
-        // when('/add', {
-        //   templateUrl: 'templates/createLinks.html',
-        //   controller: 'createLinks'
-        // }).
+        }).
+        when('/', {
+          templateUrl: 'templates/start.html',
+          controller: 'start'
+        }).
         // when('/login', {
         //   templateUrl: 'templates/createLinks.html',
         //   controller: 'loginController'
@@ -17,7 +17,7 @@ angular.module('myApp', ['ngRoute','myControllers'])
         // when('/signup', {
         //   templateUrl: 'templates/createLinks.html',
         //   controller: 'loginController'
-        }).
+        // }).
         otherwise({
           redirectTo: '/'
         });

@@ -1,12 +1,10 @@
 <div ng-controller="showFlights">
-
   <table border = "0" cellspacing="0" class="cityList" >
     <tr>
-      <th class="cityHeader">Cities</th>
-      <th class="friendHeader">Friends</th>
+      <th class="cityHeader">Places to Go</th>
+      <th class="friendHeader">People to See</th>
     </tr>
-    <!-- | orderBy: {{value}}: true -->
-    <tr ng-repeat="(key, value) in friendLoc ">
+    <tr ng-repeat="(key, value) in friendLoc">
       <td class="city"> {{key}} </td> <td class="friendNumber"> {{ value }} </td>
     </tr>
   </table>

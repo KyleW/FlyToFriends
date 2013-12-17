@@ -3,15 +3,20 @@
   }*/
 
 body {
-  background-color: black;
-  /*text-align: center;*/
   height: 100%;
   font-family: 'Karla', sans-serif;
-  /*padding: 0 25px;*/
+  /*background-color: black;*/
+  background-image:url('../grey_wash_wall.png');
+  color:white;
 }
 
-header {
-  font-size: 3em;
+form {
+  /*background-color: black;*/
+  color: white;
+}
+
+.header {
+  font-size: 60px;
 }
 
 th {
@@ -28,18 +33,23 @@ th {
   border:none;
 }
 
+.fbLogin {
+  background-color: white;
+  border:2px solid white;
+}
+
 .friendNumber {
   text-align: center;
 }
 
 .header {
-  background-color: black;
+  /*background-color: black;*/
   color: white;
 }
 
 .main {
   margin-left: 200px;
-  background-color: black;
+  /*background-color: black;*/
   color:white;
   height:100%;
   font-size:2em;
@@ -48,25 +58,31 @@ th {
 .navigation {
   float: left;
   clear: left;
-  /*height:2000px;*/
-  width: 200px;
-  background: #b5cce3;
-  /*background-color: #e6f5d6;*/
+  margin:0;
 }
 
 .navigation li {
-  display:block;
-  border:2px solid gray;
-  background-color: gray;
-  margin:20px;
+/*  display:block;;
+*/  width:100%;
+  text-decoration: none;
+/*  padding: 30px;
+  margin:20px;*/
   font-size: 2em;
-  text-align:left;
 }
 
 .navigation a {
   text-decoration: none;
+  color:white;
 }
 
+.navigation a:visited {
+  text-decoration: none;
+  color:white;
+}
+
+.startText {
+  text-align: center
+}
 
 /*
 

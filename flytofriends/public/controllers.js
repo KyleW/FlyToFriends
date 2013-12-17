@@ -1,7 +1,6 @@
 angular.module('myControllers',[])
   .controller('showFlights', function($scope, $http) {
     $scope.friendLoc = friendLoc;
-
     // $http({
     //   method: "GET",
     //   url: fburl,
@@ -11,8 +10,8 @@ angular.module('myControllers',[])
     // }).error(function(){
     //   consol.log("there was an error in your FQL request");
     // });
-  // })
-  // .controller('createLinks', function($scope, $http) {
+  })
+  .controller('start', function($scope, $http) {
   //   $scope.submit = function() {
   //     var temp ={url: $scope.newURL};
   //       $http({

@@ -1,4 +1,18 @@
 var friendLoc = {};
+var cityToDisplay = { };
+var userAirport = "SFO";
+
+
+var getPrice = function(origin, dest){
+      // AJAX request to 
+      var baseURL = "http://api.hotwire.com/v1/tripstarter/air?apikey=j6vujgj99vxdghsjkfzccuuu&origin="+userAirport;
+      var fullQuery = baseURL+"&limit=1&DestinationCity="+key+"&format=json";
+      console.log(fullQuery);
+
+      //note rate limited to 2 calls per second
+      // cityToDisplay[dest] = 
+};
+
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -14,7 +28,7 @@ window.fbAsyncInit = function() {
   // will be handled. 
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     // Here we specify what we do with the response anytime this event occurs. 
-     if (response.status === 'connected') {
+    if (response.status === 'connected') {
 
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
@@ -50,10 +64,10 @@ window.fbAsyncInit = function() {
         } else {
           // user did not give permission
         }
-    }, {scope:'friends_location'});
+      }, {scope:'friends_location'});
     }
   });
-  };
+};
 
   // Load the SDK asynchronously
   (function(d){
@@ -62,7 +76,7 @@ window.fbAsyncInit = function() {
    js = d.createElement('script'); js.id = id; js.async = true;
    js.src = "http://connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
-  }(document));
+ }(document));
 
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
@@ -71,25 +85,29 @@ window.fbAsyncInit = function() {
     
 
     FB.api(
-        {
-            method: 'fql.query',
-            query: 'SELECT current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
-        },
-        function(data) {
-            console.log(data);
-            for (var key in data){
-              if (data[key].current_location){
-                var cur = data[key].current_location.name;
-                if (cur in friendLoc){
-                  friendLoc[cur]++;
-                } else {
-                  friendLoc[cur] = 1;
-                }
-              }
-
-            }
+    {
+      method: 'fql.query',
+      query: 'SELECT current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
+    },
+    function(data) {
+      console.log(data);
+      for (var key in data){
+        if (data[key].current_location){
+          var cur = data[key].current_location.city;
+          if (cur in friendLoc){
+            friendLoc[cur]++;
+          } else {
+            friendLoc[cur] = 1;
+          }
         }
-    );
+      }
+
+    for (key in friendLoc){
+      if(freindLoc[key] > 10){
+        getPrice(userAirport,key);
+      }
+    }
+  });
 
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
