@@ -1,33 +1,39 @@
 angular.module('myControllers',[])
-  .controller('showFlights', function($scope, $http) {
+  .controller('showFlights', function($scope, $http, $location, sharedProperties) {
     $scope.friendLoc = friendLoc;
-    // $http({
-    //   method: "GET",
-    //   url: fburl,
-    // }).success(function(data){
-    //   console.log(data);
-    //   // $scope.links = data;
-    // }).error(function(){
-    //   consol.log("there was an error in your FQL request");
-    // });
+    $scope.setDest= function(newDest){
+      sharedProperties.setDest(newDest);
+      $location.path("/cityDetails");
+    };
   })
-  .controller('start', function($scope, $http) {
-  //   $scope.submit = function() {
-  //     var temp ={url: $scope.newURL};
-  //       $http({
-  //         method: "POST",
-  //         url: "http://localhost:4567/links",
-  //         headers: {'Content-Type': 'application/json'},
-  //         data: JSON.stringify(temp)
-  //       }).then(function(){
-  //         console.log("sent in a new link.");
-  //         $scope.newURL="";
-  //       });
-  //   };
-  // }).controller('loginController', function($scope){
-    
+  .controller('start', function($scope, $http, sharedProperties) {
+
+  })
+  .controller('showCity', function($scope, $http, sharedProperties) {
+    $scope.destination = sharedProperties.getDest();
+    $scope.origin = sharedProperties.getOrigin();
+
+    var hotwireUrl = "http://api.hotwire.com/v1/tripstarter/air?apikey=j6vujgj99vxdghsjkfzccuuu&origin="+$scope.origin+"&limit=1&DestinationCity="+$scope.destination+"&format=jsonp&callback=JSON_CALLBACK";
+    $http.jsonp(hotwireUrl)
+    .success(function(data){
+      console.log(data.Result.AirPricing);
+      $scope.destinationData = data.Result.AirPricing;
+    }).error(function(){
+      console.log("there was an error in your hotwire request");
+    });
   });
 
 
-// the right FQL query is:
-// SELECT current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())
+
+//   $scope.submit = function() {
+//     var temp ={url: $scope.newURL};
+//       $http({
+//         method: "POST",
+//         url: "http://localhost:4567/links",
+//         headers: {'Content-Type': 'application/json'},
+//         data: JSON.stringify(temp)
+//       }).then(function(){
+//         console.log("sent in a new link.");
+//         $scope.newURL="";
+//       });
+//   };    

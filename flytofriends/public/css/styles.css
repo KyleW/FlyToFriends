@@ -5,13 +5,11 @@
 body {
   height: 100%;
   font-family: 'Karla', sans-serif;
-  /*background-color: black;*/
   background-image:url('../grey_wash_wall.png');
   color:white;
 }
 
 form {
-  /*background-color: black;*/
   color: white;
 }
 
@@ -31,6 +29,7 @@ th {
 .cityList {
   margin: auto;
   border:none;
+  font-size: 1em;
 }
 
 .fbLogin {

@@ -5,7 +5,7 @@
       <th class="friendHeader">People to See</th>
     </tr>
     <tr ng-repeat="(key, value) in friendLoc">
-      <td class="city"> {{key}} </td> <td class="friendNumber"> {{ value }} </td>
+      <td class="city" ><a ng-click="setDest(key)">{{key}}</a></td> <td class="friendNumber"> {{ value }} </td>
     </tr>
   </table>
 </div>

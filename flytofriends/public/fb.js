@@ -101,12 +101,6 @@ window.fbAsyncInit = function() {
           }
         }
       }
-
-    for (key in friendLoc){
-      if(freindLoc[key] > 10){
-        getPrice(userAirport,key);
-      }
-    }
   });
 
     FB.api('/me', function(response) {
