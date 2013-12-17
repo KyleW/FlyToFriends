@@ -1,16 +1,5 @@
 angular.module('myControllers',[])
   .controller('showFlights', function($scope, $http) {
-    // FB.api(
-    //     {
-    //         method: 'fql.query',
-    //         query: 'SELECT current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me() LIMIT 50)'
-    //     },
-    //     function(data) {
-    //         // console.log(data);
-    //         $scope.friendLoc = data;
-    //     }
-    // );
-
     $scope.friendLoc = friendLoc;
 
     // $http({

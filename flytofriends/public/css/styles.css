@@ -1,40 +1,109 @@
+/** {
+  border: 2px dashed green;
+  }*/
+
 body {
-    background: #eee;
-    text-align: center;
-    padding: 0 25px;
+  background-color: black;
+  /*text-align: center;*/
+  height: 100%;
+  font-family: 'Karla', sans-serif;
+  /*padding: 0 25px;*/
 }
 
+header {
+  font-size: 3em;
+}
+
+th {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.cityHeader {
+  text-align: left;
+}
+
+.cityList {
+  margin: auto;
+  border:none;
+}
+
+.friendNumber {
+  text-align: center;
+}
+
+.header {
+  background-color: black;
+  color: white;
+}
+
+.main {
+  margin-left: 200px;
+  background-color: black;
+  color:white;
+  height:100%;
+  font-size:2em;
+}
+
+.navigation {
+  float: left;
+  clear: left;
+  /*height:2000px;*/
+  width: 200px;
+  background: #b5cce3;
+  /*background-color: #e6f5d6;*/
+}
+
+.navigation li {
+  display:block;
+  border:2px solid gray;
+  background-color: gray;
+  margin:20px;
+  font-size: 2em;
+  text-align:left;
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+
+/*
+
+
 #main {
-    width: 500px;
-    margin: auto;
-    text-align: left;
-    background: white;
-    padding: 50px 60px;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+  width: 500px;
+  margin: auto;
+  text-align: left;
+  background: white;
+  padding: 50px 60px;
+  border: solid #ddd;
+  border-width: 0 1px 1px 1px;
 }
 
 #main h1 {
-    margin-top: 0;
-    font-size: 35px;
+  margin-top: 0;
+  font-size: 35px;
 }
 
 #main ul {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 #main .error {
-    border: 1px solid red;
-    background: #FDEFF0;
-    padding: 20px;
+  border: 1px solid red;
+  background: #FDEFF0;
+  padding: 20px;
 }
 
 #main .success {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 #main .success code {
-    font-size: 12px;
-    color: green;
-    line-height: 13px;
+  font-size: 12px;
+  color: green;
+  line-height: 13px;
 }
+
+*/

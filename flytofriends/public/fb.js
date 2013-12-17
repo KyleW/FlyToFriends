@@ -80,7 +80,11 @@ window.fbAsyncInit = function() {
             for (var key in data){
               if (data[key].current_location){
                 var cur = data[key].current_location.name;
-                friendLoc[cur] = true;
+                if (cur in friendLoc){
+                  friendLoc[cur]++;
+                } else {
+                  friendLoc[cur] = 1;
+                }
               }
 
             }
