@@ -1,9 +1,13 @@
 <div ng-controller="showFlights">
+<!--      <label>Sort by this:</label>
+      <input type="text" ng-model="sortBy" placeholder="Enter a property">
+ -->
   <table border = "0" cellspacing="0" class="cityList" >
     <tr>
       <th class="cityHeader">Places to Go</th>
       <th class="friendHeader">People to See</th>
     </tr>
+    <!-- <tr ng-repeat="(key, value) in friendLoc | orderBy: sortBy:true"> -->
     <tr ng-repeat="(key, value) in friendLoc">
       <td class="city" ><a ng-click="setDest(key)">{{key}}</a></td> <td class="friendNumber"> {{ value }} </td>
     </tr>
