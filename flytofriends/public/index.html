@@ -7,41 +7,35 @@
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.js"></script>
-
+  <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 
   <!-- INTERNAL -->
   <script src="fb.js"></script>
   <script src="app.js"></script>
   <script src="controllers.js"></script>
 
-
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
-  <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
 
   <title>Fly to Friends </title>
 </head>
 
 <body>
 
-  <div class="header">Fly To Friends</div>
-  <hr>
-<!--   <div class="navigation">
+  <div class = "wrapper">
 
-    <ul>
-      <li><a href="#">Login</a></li>
-      <li><a href="#/flights">View Flights</a></li>
-    </ul> -->
+    <header>
+      <a href="http://flytofriends.parseapp.com">Fly To Friends</a>    
+    </header>
 
-<!--   <form>
-    <input type=text name="nearestAirport"><input>
-    <button>Fly to your friends</button> 
-  </form> -->
+    <div class = "main" ng-view></div>
+<!-- 
+    <footer>
+      <fb:login-button class="fbLogin" show-faces="true" width="200" max-rows="1"></fb:login-button>
+    </footer> -->
 
-  <div class="main" ng-view></div>
-
-
-
+  </div>
+  <div id="fb-root"></div>
 </body>
 </html>
 

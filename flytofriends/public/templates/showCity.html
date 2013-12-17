@@ -1,4 +1,15 @@
 <div ng-controller="showCity">
-     Here's where some stuff about the city will go
+  <h2>Here's some details about your trip </h2>
+  
+  Origin: {{origin}}<br>
+  Destination: {{destination}}<br>
+  DestinationAirportCode: {{destinationData.DestinationAirportCode}}<br>
+
+  AveragePrice: {{destinationData.AveragePrice | currency}}<br>
+
+  <a href='{{destinationData.Url}}'>More details on Hotwire</a>
+
+<!--   All the data:
+  {{destinationData}} -->
 </div>
 

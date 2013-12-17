@@ -14,6 +14,7 @@ angular.module('myControllers',[])
     $scope.origin = sharedProperties.getOrigin();
 
     var hotwireUrl = "http://api.hotwire.com/v1/tripstarter/air?apikey=j6vujgj99vxdghsjkfzccuuu&origin="+$scope.origin+"&limit=1&DestinationCity="+$scope.destination+"&format=jsonp&callback=JSON_CALLBACK";
+    
     $http.jsonp(hotwireUrl)
     .success(function(data){
       console.log(data.Result.AirPricing);
@@ -21,6 +22,7 @@ angular.module('myControllers',[])
     }).error(function(){
       console.log("there was an error in your hotwire request");
     });
+    
   });
 
 

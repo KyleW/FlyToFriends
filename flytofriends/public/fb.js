@@ -1,18 +1,4 @@
 var friendLoc = {};
-var cityToDisplay = { };
-var userAirport = "SFO";
-
-
-var getPrice = function(origin, dest){
-      // AJAX request to 
-      var baseURL = "http://api.hotwire.com/v1/tripstarter/air?apikey=j6vujgj99vxdghsjkfzccuuu&origin="+userAirport;
-      var fullQuery = baseURL+"&limit=1&DestinationCity="+key+"&format=json";
-      console.log(fullQuery);
-
-      //note rate limited to 2 calls per second
-      // cityToDisplay[dest] = 
-};
-
 
 window.fbAsyncInit = function() {
   FB.init({

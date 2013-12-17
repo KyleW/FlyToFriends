@@ -35,3 +35,6 @@ angular.module('myApp', ['ngRoute','myControllers'])
       }
     };
   });
+
+
+  // ng-click="$location.path('/cityList')"
