@@ -1,4 +1,4 @@
-<div ng-controller="showFlights">
+<div ng-controller="listCities">
 <!--      <label>Sort by this:</label>
       <input type="text" ng-model="sortBy" placeholder="Enter a property">
  -->
@@ -7,10 +7,10 @@
       <th class="cityHeader">Places to Go</th>
       <th class="friendHeader">People to See</th>
     </tr>
-    <tr ng-repeat="city in locData">
+    <tr ng-repeat="city in locData | orderBy:'friends':true">
     <!-- <tr ng-repeat="(key, value) in friendLoc"> -->
       <td class="city" ><a ng-click="setDest(city.city)">{{city.name}}</a></td>
-      <!-- <td class="friendNumber"> {{ value }} </td> -->
+      <td class="friendNumber"> {{ city.friends }} </td>
     </tr>
   </table>
 </div>

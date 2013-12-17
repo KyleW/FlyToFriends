@@ -23,6 +23,10 @@ angular.module('myControllers',[])
             }
           }
         }
+
+        for (var i = 0 ; i < locData.length ; i++){
+          locData[i].friends = friendLoc[locData[i].city];
+        }
         console.log("this is locData");
         console.log(locData);
       });
