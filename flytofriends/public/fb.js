@@ -1,4 +1,4 @@
-var friendLoc;
+var friendLoc = {};
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -73,11 +73,17 @@ window.fbAsyncInit = function() {
     FB.api(
         {
             method: 'fql.query',
-            query: 'SELECT current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me() LIMIT 50)'
+            query: 'SELECT current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
         },
         function(data) {
             console.log(data);
-            friendLoc = data;
+            for (var key in data){
+              if (data[key].current_location){
+                var cur = data[key].current_location.name;
+                friendLoc[cur] = true;
+              }
+
+            }
         }
     );
 

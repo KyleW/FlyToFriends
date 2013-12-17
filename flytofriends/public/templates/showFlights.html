@@ -1,7 +1,7 @@
 <div ng-controller="showFlights">
   This is where we'll show some flights.
   <ul class="cityList">
-    <li ng-repeat="friend in friendLoc"> {{friend.current_location.name}}</li>
+    <li ng-repeat="friend in friendLoc"> {{friend.current_location.name |  filter:{friend.current_location.name: '!!'} }}</li>
   </ul>
 </div>
 
