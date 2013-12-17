@@ -1,3 +1,5 @@
+var friendLoc;
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '538180179610997',
@@ -13,10 +15,6 @@ window.fbAsyncInit = function() {
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     // Here we specify what we do with the response anytime this event occurs. 
      if (response.status === 'connected') {
-      console.log(response);
-      FB.api('/me', function(response) {
-       console.log(response.location.name);
-      });
 
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
@@ -55,6 +53,18 @@ window.fbAsyncInit = function() {
   // This testAPI() function is only called in those cases. 
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
+    
+    FB.api(
+        {
+            method: 'fql.query',
+            query: 'SELECT uid, mutual_friend_count, current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me() LIMIT 50)'
+        },
+        function(data) {
+            console.log(data);
+            friendLoc = data;
+        }
+    );
+
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
