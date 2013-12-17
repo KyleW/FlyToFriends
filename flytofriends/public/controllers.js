@@ -1,11 +1,17 @@
 angular.module('myControllers',[])
   .controller('showFlights', function($scope, $http) {
-    // var fbBase = 'https://graph.facebook.com/fql?q=';
-    // var query ="SELECT+current_location+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1=me())";
-    // // query="SELECT+uid+FROM+user+WHERE+uid=me()";
-    // var access_token = "CAACEdEose0cBAHLksQGaZCI48hugtfYkfZCPoNmI7iGg6ZAAxGTi9iU8GrF6mDrAvKuKMylmHa7sQg2lHFuMt6EgflYk9rJ3AZCU6oC2RoZACl1HVlQEaIObZB82iSyVZCv1GOZCXt8yVAa9RygF7oev26gc6H1t7Mdfg2OV8QXlt487xxPQSnplGPtihHuKs8wZD";
-    // var fburl = fbBase+JSON.stringify(query)+"&access_token="+access_token;
-    // console.log(fburl);
+    // FB.api(
+    //     {
+    //         method: 'fql.query',
+    //         query: 'SELECT current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me() LIMIT 50)'
+    //     },
+    //     function(data) {
+    //         // console.log(data);
+    //         $scope.friendLoc = data;
+    //     }
+    // );
+
+    $scope.friendLoc = friendLoc;
 
     // $http({
     //   method: "GET",

@@ -28,14 +28,29 @@ window.fbAsyncInit = function() {
       // (1) JavaScript created popup windows are blocked by most browsers unless they 
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
-      FB.login();
+      
+      FB.login(function(response) {
+        if (response.authResponse) {
+          // user gave permission        
+        } else {
+          // user did not give permission
+        }
+      }, {scope:'friends_location'});
+
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
       // of whether they are logged into the app. If they aren't then they'll see the Login
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
-      FB.login();
+      
+      FB.login(function(response) {
+        if (response.authResponse) {
+          // user gave permission        
+        } else {
+          // user did not give permission
+        }
+    }, {scope:'friends_location'});
     }
   });
   };
@@ -54,10 +69,11 @@ window.fbAsyncInit = function() {
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     
+
     FB.api(
         {
             method: 'fql.query',
-            query: 'SELECT uid, mutual_friend_count, current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me() LIMIT 50)'
+            query: 'SELECT current_location.name FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me() LIMIT 50)'
         },
         function(data) {
             console.log(data);
