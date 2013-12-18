@@ -1,5 +1,4 @@
-var friendLoc = {};
-var locData = [];
+
 
 window.fbAsyncInit = function() {
   FB.init({

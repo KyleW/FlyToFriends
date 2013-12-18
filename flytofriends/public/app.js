@@ -3,35 +3,18 @@ angular.module('myApp', ['ngRoute','myControllers'])
   function($routeProvider) {
     $routeProvider.
     when('/', {
-      templateUrl: 'templates/start.html',
-      controller: 'start'
+      controller: 'start',
+      templateUrl: 'templates/start.html'
     }).
     when('/cityList', {
-      templateUrl: 'templates/listCities.html',
-      controller: 'listCities'
+      controller: 'listCities',
+      templateUrl: 'templates/listCities.html'
     }).
     when('/cityDetails', {
-      templateUrl: 'templates/showCity.html',
-      controller: 'showCity'
+      controller: 'showCity',
+      templateUrl: 'templates/showCity.html'
     }).
     otherwise({
       redirectTo: '/'
     });
-  }]).service('sharedProperties', function () {
-    var origin = "SFO";
-    var destination;
-    return {
-      getDest: function () {
-        return destination;
-      },
-      setDest: function(value) {
-        destination = value;
-      },
-      getOrigin:function(){
-        return origin;
-      },
-      setOrigin: function(newOrigin){
-        origin = newOrigin;
-      }
-    };
-  });
+  }]);

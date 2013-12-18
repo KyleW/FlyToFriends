@@ -2,44 +2,20 @@ angular.module('myControllers',[])
 
 .controller('start', function($scope, $http, $location, sharedProperties) {
   $scope.checkLogin = function(){
-    FB.getLoginStatus(function(response) {
-      if (response.status !== 'connected') {
-        FB.login(function(response) {}, {scope:'friends_location'});
-      }
 
-      FB.api( {
-        method: 'fql.query',
-        query: 'SELECT current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())'
-      }, function(data) {
-        friendLoc = {};
-        locData = [];
-        for (var key in data){
-          if (data[key].current_location){
-            var cur = data[key].current_location.city;
-            if (cur in friendLoc){ friendLoc[cur]++;}
-            else {
-              friendLoc[cur] = 1;
-              locData.push(data[key].current_location);
-            }
-          }
-        }
-
-        for (var i = 0 ; i < locData.length ; i++){
-          locData[i].friends = friendLoc[locData[i].city];
-        }
-        console.log("this is locData");
-        console.log(locData);
-      });
-    });
     $location.path("/cityList");
   };
 })
 
 
-.controller('listCities', function($scope, $http, $location, sharedProperties) {
+.controller('listCities', function($scope, $http, $location, sharedProperties, fetchFBData) {
 
-  $scope.friendLoc = friendLoc;
-  $scope.locData = locData;
+  var promise = fetchFBData.fetchData();
+
+  promise.then(function(data){
+    console.log('Promise is now resolved: '+ data);
+    $scope.locData = data;
+  });
 
 
   $scope.setDest= function(newDest){
