@@ -28,6 +28,8 @@ angular.module('myApp')
 
   var fetchData =function(){
     var deferred = $q.defer();
+    friendLoc = {};
+    locData = [];
 
     FB.getLoginStatus(function(response) {
 
@@ -53,9 +55,10 @@ angular.module('myApp')
         // Add # of friends to locData
         for (var i = 0 ; i < locData.length ; i++){
           locData[i].friends = friendLoc[locData[i].city];
+          if(dictionary[locData[i].city]){
+            locData[i].airportCode = dictionary[locData[i].city];
+          }
         }
-
-        console.log("locData is ready");
 
         deferred.resolve(locData);
       });

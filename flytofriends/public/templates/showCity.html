@@ -1,15 +1,26 @@
 <div class="cityDetails" ng-controller="showCity">
-  <h2>Here's some details about your trip </h2>
+  <h2>If you were to leave next week . . . </h2>
   
-  Origin: {{origin}}<br>
-  Destination: {{destination}}<br>
-  DestinationAirportCode: {{destinationData.DestinationAirportCode}}<br>
+  <div class = "left">
+  Origin:  {{origin}}<br>
+  Fly From:  {{destinationData.OrigAirportCode}}<br>
+  <br>
+  Destination:  {{destination}}<br>
+  Destination Airport Code:  {{destinationData.DestinationAirportCode}}<br>
 
-  AveragePrice: {{destinationData.AveragePrice | currency}}<br>
+  Average Ticket Price:  {{destinationData.AveragePrice | currency}}<br>
+  </div>
 
-  <a href='{{destinationData.Url}}'>More details on Hotwire</a>
+  <div class="right">
+  The Weather Next Week:<br>
+  Average Daily High:  {{destinationData.AverageMaxTemp}}<br>
+  Average Daily Low:  {{destinationData.AverageMinTemp}}<br>
+  </div>
 
-<!--   All the data:
-  {{destinationData}} -->
+  <div class="clear">
+    <a href='{{destinationData.Url}}'>More details on Hotwire</a>
+  </div>
+  
+
 </div>
 

@@ -6,7 +6,7 @@
       <th class="friendHeader">People to See</th>
     </tr>
     <tr ng-repeat="city in locData | orderBy:'friends':true">
-      <td class="city" ><a ng-click="setDest(city.city)">{{city.name}}</a></td>
+      <td class="city" ><a ng-click="setDest(city.airportCode)">{{city.name}}</a></td>
       <td class="friendNumber"> {{ city.friends }} </td>
     </tr>
   </table>
