@@ -2,25 +2,39 @@
   <h2>If you were to leave next week . . . </h2>
   
   <div class = "left">
-  Origin:  {{origin}}<br>
-  Fly From:  {{destinationData.OrigAirportCode}}<br>
-  <br>
-  Destination:  {{destination}}<br>
-  Destination Airport Code:  {{destinationData.DestinationAirportCode}}<br>
-
-  Average Ticket Price:  {{destinationData.AveragePrice | currency}}<br>
+    <table>
+      <tr>
+        <td class="detLabel">Fly From:</td>
+        <td class="det">{{destinationData.OrigAirportCode}}</td>
+      </tr>
+      <tr>
+        <td class="detLabel">Fly To:</td>
+        <td class="det">{{destinationData.DestinationAirportCode}}</td>
+      </tr>
+      <tr></tr>
+      <tr></tr>
+      <tr>
+        <td class="detLabel">Average Ticket Price:</td>
+        <td class="det">{{destinationData.AveragePrice | currency}}</td>
+      </tr>
+    </table>
   </div>
-
-  <div class="right">
-  The Weather Next Week:<br>
-  Average Daily High:  {{destinationData.AverageMaxTemp}}<br>
-  Average Daily Low:  {{destinationData.AverageMinTemp}}<br>
+  <div class="left">
+  <table>
+    <tr>
+      <td class="detLabel">Average Daily High Temp:</td>
+      <td class="det">{{destinationData.AverageMaxTemp}}</td>
+    </tr>
+    <tr>
+      <td class="detLabel">Average Daily Low Temp:</td>
+      <td class="det">{{destinationData.AverageMinTemp}}</td>
+    </tr>
+  </table>
   </div>
-
-  <div class="clear">
-    <a href='{{destinationData.Url}}'>More details on Hotwire</a>
+  <div class="clear"></div>
+  <div class="hotWire">
+    <h2><a href='{{destinationData.Url}}'>More details on Hotwire</a></h2>
   </div>
-  
 
 </div>
 

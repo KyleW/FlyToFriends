@@ -5,17 +5,35 @@ html, body {
   margin:0;
 }
 
-.cityDetails {
-  font-size: 1em;
+.detLabel {
+  width: 300px;
 }
 
-.clear {
+.det {
+  width:80px;
+  text-align:right;
+}
+
+.cityDetails {
+  font-size: 0.8em;
+}
+
+.clear{
   clear:both;
+  display: block;
+}
+
+.hotwire {
+  margin:40px;
+  width:100%;
+  text-align:center;
+  color: purple;
 }
 
 .left {
   float: left;
   width:40%;
+  margin-left: 5%;
 }
 
 .right {
