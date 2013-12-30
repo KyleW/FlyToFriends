@@ -1,8 +1,6 @@
 angular.module('myApp', ['ngRoute','myControllers'])
-.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-    when('/', {
+.config(['$routeProvider',function($routeProvider) {
+  $routeProvider.when('/', {
       controller: 'start',
       templateUrl: 'templates/start.html'
     }).
